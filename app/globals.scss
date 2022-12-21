@@ -105,3 +105,36 @@ a {
     color-scheme: dark;
   }
 }
+
+// Navbar.scss
+
+nav {
+  background-color: #0369a1;
+  padding: 0 3rem;
+  // display: flex;
+  // align-items: center;
+  font-family: 'Roboto', sans-serif;
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    li {
+        color: #fff;
+        text-decoration: none;
+        padding: 1rem;
+        &:hover {
+          color: #0ea5e9;
+        }
+    }
+  }
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  margin-right: auto;
+}
