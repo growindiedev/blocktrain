@@ -1,6 +1,7 @@
-import './globals.scss'
+import './globals.css'
 //import styles from './page.module.css'
 import Navbar from './(components)/Navbar'
+import SearchContainer from './(components)/SearchContainer'
 
 
 export default function RootLayout({
@@ -13,6 +14,7 @@ export default function RootLayout({
       <head />
       <body>
         <Navbar/>
+        <SearchContainer/>
         {children}
       </body>
     </html>
