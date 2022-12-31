@@ -5,9 +5,11 @@ const LatestTransactions = () => {
         {/* <!-- head --> */}
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
+            <th>Latest Transactions</th>
+            <th></th>
+            <th></th>
+            {/* <th>Job</th>
+            <th>Favorite Color</th> */}
             <th></th>
           </tr>
         </thead>
