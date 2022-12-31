@@ -1,15 +1,21 @@
+//'use client'
+
+import alchemy from "../SDK"
 
 
 const LatestBlocks = () => {
+
   return (
     <div className="overflow-x-auto">
       <table className="table shadow">
         {/* <!-- head --> */}
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
+            <th>Latest Blocks</th>
+            <th></th>
+            <th></th>
+            {/* <th>Job</th>
+            <th>Favorite Color</th> */}
             <th></th>
           </tr>
         </thead>
@@ -24,7 +30,7 @@ const LatestBlocks = () => {
                   </div>
                 </div>
                 <div>
-                  <div className="font-bold">Hart Hagerty</div>
+                  <div className="font-bold">divnity</div>
                   <div className="text-sm opacity-50">United States</div>
                 </div>
               </div>

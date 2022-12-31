@@ -1,25 +1,33 @@
 import alchemy from "../SDK"
 
-//export const revalidate = 10; // revalidate this page every 60 seconds
+export const revalidate = 10; // revalidate this page every 60 seconds
 
 async function getEthData() {
   const res = await fetch(
     `https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol=ETH&convert=USD&CMC_PRO_API_KEY=${process.env.COINMARKETCAP}`,
     {
-      next: { revalidate: 30 },
+     next: { revalidate: 5 },
+     //cache: 'no-store'
     }
   );
   const data = await res.json();
   return data;
 }
 
+async function getBlockData() {
+  let blockNumber = await alchemy.core.getBlockNumber()
+  let currentGasPrice = await alchemy.core.getGasPrice()
+
+  return { blockNumber, currentGasPrice}
+}
+
 
 const Status = async () => {
-  let blockNumber = await alchemy.core.getBlockNumber()
-  let currentGasPrice = await (await alchemy.core.getGasPrice())
+
+  let { blockNumber, currentGasPrice } = await getBlockData ()
   let gas = (currentGasPrice.toNumber() / 10**9).toFixed(3)
 
-  let { data: {ETH: { quote: {USD : {price, market_cap, percent_change_1h}}}} } = await getEthData()
+  let { data: {ETH: { quote: {USD : {price, market_cap, percent_change_1h}}}} } =  await getEthData()
   let marketCap = market_cap / 1000000000
 
   return (
